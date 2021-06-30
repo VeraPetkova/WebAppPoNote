@@ -1,0 +1,246 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 800;
+    color: #1367C2;
+}
+
+h3 {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 400;
+    color: #1367C2;
+}
+
+#logo {
+    margin-top: 30px;
+}
+
+#login {
+    margin-top: 35px;
+    text-align: right;
+}
+
+#logout {
+    margin-top: 35px;
+    text-align: right;
+}
+
+#login span a {
+    font-family: 'Darker Grotesque', sans-serif;
+    color: white;
+    border: 1px solid white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 4px;
+    border-radius: 2px;
+}
+
+#logout span a {
+    font-family: 'Darker Grotesque', sans-serif;
+    color: white;
+    border: 1px solid white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 4px;
+    border-radius: 2px;
+}
+
+#termsofservice {
+    color: #1367C2;
+    padding-bottom: 30px;
+    font-size: 0.8em;
+}
+
+    #termsofservice a {
+        font-weight: 800;
+    }
+
+.pagetitle {
+    color: rgba(0, 105, 194, 1);
+    padding-top: 30px;
+    font-size: 4em;
+    font-weight: 400;
+    color: white;
+}
+
+    .pagetitle span {
+        font-weight: 800;
+    }
+
+input {
+    border: none;
+    background-color: white;
+    color: #1367C2;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+button.submitregister {
+    background-color: #1367C2;
+    border-radius: 2px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+a {
+    font-family: 'Darker Grotesque', sans-serif;
+    color: #1367C2;
+    text-decoration: none;
+}
+
+div.formcontainer {
+    width: 60%;
+    background-image: url(../img/note_no_pin.png)
+    margin-top: 30px;
+}
+
+#stiker {
+    position: relative;
+    top: -30px;
+}
+
+.nav-link {
+    text-align: left;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: white;
+    padding-bottom: 22px;
+    padding-top: 10px;
+}
+
+    .nav-link:hover {
+        border-left: 4px solid white;
+        color: white;
+        background-color: #1367C2;
+    }
+
+.menucolumn {
+    border-radius: 2px;
+    background-color: rgba(0, 105, 194, 0.5);
+}
+
+.noteview {
+    border-radius: 2px;
+    background-image: url(../img/note_no_pin.png);
+    padding-top: 20px;
+}
+
+.newnote {
+    margin-top: 30px;
+    width: 70%;
+}
+
+.inputnote {
+    background-color: transparent;
+    color: #1367C2;
+}
+
+#extarea {
+    background-color: transparent;
+}
+
+.form-control::placeholder {
+    color: #1367C2;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.5em;
+}
+
+.title::placeholder {
+    font-size: 2em;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+#extarea {
+    margin-bottom: 20px;
+}
+
+#exampleFormControlFile1 {
+    background-color: transparent;
+}
+
+#formcontainer {
+    padding-top: 50px;
+}
+
+hr {
+    border-top: 2px solid #1367C2;
+    opacity: 1;
+}
+
+#formcontainer form input, button {
+    width: 100%;
+}
+
+form div.col-6, div.col-12 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.page-holder {
+    min-height: 100vh;
+}
+
+#newnote {
+    position: relative;
+}
+
+#hrsubmit {
+    position: absolute;
+    bottom: 0;
+}
+
+.nav-item {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .nav-item a {
+        font-family: 'Darker Grotesque', sans-serif;
+        font-weight: 800;
+        font-size: 1.5em;
+        color: white;
+        border: 1px solid white;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 12px;
+        border-radius: 2px;
+    }
+
+.modal-footer button {
+    color: white;
+    background-color: #1367C2;
+}
+
+.modal-title {
+    color: #1367C2;
+}
+
+.notesview {
+    border: 1px solid white;
+}
+
+.bg-cover {
+    background: url(../img/1920_1080_1_bez_belejka.jpg);
+    background-size: cover !important;
+}
+
+.fixed-bottom {
+    background-color: white;
+    color: #1367C2;
+}
+
+    .fixed-bottom p {
+        color: #1367C2;
+        padding-top: 5px;
+        font-family: 'Darker Grotesque', sans-serif;
+    }
