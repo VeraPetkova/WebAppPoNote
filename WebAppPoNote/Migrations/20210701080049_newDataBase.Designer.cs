@@ -9,8 +9,8 @@ using WebAppPoNote.Data;
 namespace WebAppPoNote.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210629083424_newTable")]
-    partial class newTable
+    [Migration("20210701080049_newDataBase")]
+    partial class newDataBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace WebAppPoNote.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebAppPoNote.Models.AppNote", b =>
+            modelBuilder.Entity("WebAppPoNote.Data.Note", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace WebAppPoNote.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppNotes");
+                    b.ToTable("NoteList");
                 });
 #pragma warning restore 612, 618
         }

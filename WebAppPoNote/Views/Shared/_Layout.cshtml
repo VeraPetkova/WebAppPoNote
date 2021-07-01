@@ -25,41 +25,44 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebAppPoNote</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Note" asp-action="Index">My Note</a>
-                        </li>
-                    </ul>
+    <div class="page-holder bg-cover">
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <img id="logo" src="~/img/Logo_poNote_small.png" alt="Logo poNote">
+                </div>
+               
+                <div class="col-6 text-center">
+                    <h1 class="pagetitle"> new <span>N</span>ote</h1>
+                </div>
+                <div class="col-3">
+                    <p id="logout" class="text-right">
+                        Hello, <span id="username">username</span> <span>
+                            <a href="index.html">Logout</a>
+                        </span>
+                    </p>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - WebAppPoNote - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </header>
+        <div class="container newnote">
+            <div class=" row">
+                <nav class="nav flex-column col-3 menucolumn">
+                    <a class="nav-link" href="/Note/Create">New note</a>
+                    <a id="expiring" class="nav-link" href="expiringnotes.html">Expiring</a>
+                    <a class="nav-link" href="/Note/Index">My notes</a>
+                    <a class="nav-link" href="delitednotes.html">Deleted</a>
+                    <a class="nav-link" href="arhivenotes.html">Archivе</a>
+                </nav>
+                <div class="noteview col-9">
+                    @RenderBody()
+                </div>
+            </div>
         </div>
+    </div>
+    <footer class="container-fluid text-center text-white fixed-bottom">
+        <p>Designed by <a href=#><b>poWeb</b></a> © 2020-2021 All rights reserved </p>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

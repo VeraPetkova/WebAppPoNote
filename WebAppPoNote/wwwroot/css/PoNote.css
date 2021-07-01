@@ -16,24 +16,36 @@ h3 {
     color: #1367C2;
 }
 
+p {
+    color: #2D2D2D;
+}
+
 #logo {
     margin-top: 30px;
+    padding-left: 20px;
 }
 
 #login {
     margin-top: 35px;
     text-align: right;
+    font-family: 'Darker Grotesque', sans-serif;
+    color: white;
+}
+
+img {
+    max-width: 100%;
 }
 
 #logout {
     margin-top: 35px;
     text-align: right;
+    font-family: 'Darker Grotesque', sans-serif;
+    color: white;
 }
 
 #login span a {
     font-family: 'Darker Grotesque', sans-serif;
     color: white;
-    border: 1px solid white;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 4px;
@@ -43,7 +55,6 @@ h3 {
 #logout span a {
     font-family: 'Darker Grotesque', sans-serif;
     color: white;
-    border: 1px solid white;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 4px;
@@ -82,13 +93,20 @@ input {
 }
 
 button.submitregister {
-    background-color: #1367C2;
+    background-color: rgba(0, 105, 194, .8);
     border-radius: 2px;
     color: white;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-family: 'Darker Grotesque', sans-serif;
+    
 }
+
+    button.submitregister:hover {
+        background-color: rgba(0, 105, 194, 1);
+        color: white;
+        transition: 0.30s ease-in-out;
+    }
 
 a {
     font-family: 'Darker Grotesque', sans-serif;
@@ -98,7 +116,7 @@ a {
 
 div.formcontainer {
     width: 60%;
-    background-image: url(../img/note_no_pin.png)
+    background-image: url("../img/note_no_pin.png");
     margin-top: 30px;
 }
 
@@ -121,17 +139,26 @@ div.formcontainer {
         border-left: 4px solid white;
         color: white;
         background-color: #1367C2;
+        transition: 0.30s ease-in-out;
     }
 
+#expiring:hover {
+    border-left: 4px solid #FF0F0F;
+}
+
 .menucolumn {
+    padding-top: 30px;
     border-radius: 2px;
     background-color: rgba(0, 105, 194, 0.5);
 }
 
 .noteview {
     border-radius: 2px;
-    background-image: url(../img/note_no_pin.png);
+    background-image: url("../img/note_no_pin.png");
     padding-top: 20px;
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-bottom: 20px;
 }
 
 .newnote {
@@ -146,6 +173,10 @@ div.formcontainer {
 
 #extarea {
     background-color: transparent;
+}
+
+#newnoteform input.title {
+    margin-top: 5px;
 }
 
 .form-control::placeholder {
@@ -172,10 +203,54 @@ div.formcontainer {
     padding-top: 50px;
 }
 
-hr {
-    border-top: 2px solid #1367C2;
+.bluehr {
+    border-top: 1px solid #1367C2;
     opacity: 1;
 }
+
+.whitehr {
+    border-top: 1px solid white;
+    opacity: 1;
+}
+
+.littlenoteinner {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .8);
+    color: #2D2D2D;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 12em;
+    overflow: hidden;
+}
+
+.fullnoteviewtitle {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.noteheader {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(0, 105, 194, 0.8);
+}
+
+    .noteheader:hover {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(0, 105, 194, 1);
+    }
+
+    .noteheader h3 {
+        color: white;
+    }
+
+    .noteheader p {
+        color: white;
+    }
+
+    .noteheader hr.mininote {
+        color: white;
+    }
 
 #formcontainer form input, button {
     width: 100%;
@@ -216,15 +291,6 @@ form div.col-6, div.col-12 {
         border-radius: 2px;
     }
 
-.modal-footer button {
-    color: white;
-    background-color: #1367C2;
-}
-
-.modal-title {
-    color: #1367C2;
-}
-
 .notesview {
     border: 1px solid white;
 }
@@ -232,6 +298,11 @@ form div.col-6, div.col-12 {
 .bg-cover {
     background: url(../img/1920_1080_1_bez_belejka.jpg);
     background-size: cover !important;
+    padding-bottom: 100px;
+}
+
+.page-holder{
+    padding-bottom: 100px;
 }
 
 .fixed-bottom {
@@ -244,3 +315,10 @@ form div.col-6, div.col-12 {
         padding-top: 5px;
         font-family: 'Darker Grotesque', sans-serif;
     }
+
+label {
+    color: #1367C2;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: large;
+}

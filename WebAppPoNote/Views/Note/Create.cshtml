@@ -1,62 +1,30 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
-
-<body>
-    <div class="page-holder bg-cover">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <img id="logo" src="~/img/Logo_poNote_small.png" alt="Logo poNote">
-                </div>
-                <div class="col-6 text-center">
-                    <h1 class="pagetitle">new <span>N</span>ote</h1>
-                </div>
-                <div class="col-3">
-                    <div class="row">
-                        <p id="user" class="col-6">Hello, user</p>
-                        <p id="logout" class="text-right col-6"><span><a href="index.html">Logout</a></span></p>
-                    </div>
-                </div>
-            </div>
+﻿@model CreateNoteViewModel
+@using (Html.BeginForm("Create", "Note", FormMethod.Post))
+{
+<form id="newnoteform" class="container">
+    <div class="row">
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
+        <div class="col-8  text-end">
+            <label for="expirydate" class="text-end">
+                Enter the expiration date of this
+                note:
+            </label>
         </div>
-        <div class="container newnote">
-            <div class=" row">
-                <nav class="nav flex-column col-3 menucolumn">
-                    <a class="nav-link" href="newnote.html">New note</a>
-                    <a class="nav-link" href="expiringnotes.html">Expiring</a>
-                    <a class="nav-link" href="mynotes.html">My notes</a>
-                    <a class="nav-link" href="delitednotes.html">Delited</a>
-                    <a class="nav-link" href="arhivenotes.html">Archivе</a>
-                </nav>
-                <div class="noteview col-9">
-                    <form id="newnoteform" class="container">
-
-                        <div class="row">
-
-                            <input type="text" class="form-control inputnote title" placeholder="Title">
-                            <input type="date" class="form-control inputnote">
-                            <hr class="col-12">
-                        </div>
-                        <div class="row">
-                            <textarea class="form-control" id="extarea" rows="5" placeholder="Your note..."></textarea>
-                        </div>
-                        <div class="row">
-                            <hr class="col-12">
-                            <input type="file" class="form-control-file col-7" id="exampleFormControlFile1">
-                            <button type="submit" class="btn submitregister col-5">Save note</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
+        <div class="col-4">
+            <input type="date" class="form-control inputnote col-6" id="expirydate">
         </div>
-
+        <hr class="col-12">
     </div>
-    <div class="container-fluid text-center text-white fixed-bottom">
-        <p>Designed by <a href=#><b>poWeb</b></a> © 2020-2021 All rights reserved </p>
+    <div class="row">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "extarea", @rows = "5", @placeholder = "Your note..." })
     </div>
+    <div class="row">
+        <hr class="col-12">
+        <input type="file" class="form-control-file col-7" id="exampleFormControlFile1">
+        <button type="submit" class="btn submitregister col-5">Save note</button>
+    </div>
+</form>
+ }
 
 
-</body>
+

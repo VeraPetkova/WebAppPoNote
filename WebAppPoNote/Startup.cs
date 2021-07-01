@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppPoNote.Data;
+using AspNet.Mvc.TypedRouting;
 
 namespace WebAppPoNote
 {
@@ -48,6 +49,15 @@ namespace WebAppPoNote
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.UseTypedRouting();
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+               
+            //});
 
             app.UseAuthorization();
 

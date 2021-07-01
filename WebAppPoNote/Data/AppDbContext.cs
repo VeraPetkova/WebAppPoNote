@@ -13,7 +13,7 @@ namespace WebAppPoNote.Data
         {
 
         }
-        public DbSet<AppNote> AppNotes{ get; set; }
+        public DbSet<Note> NoteList { get; set; }
 
     }
 }
