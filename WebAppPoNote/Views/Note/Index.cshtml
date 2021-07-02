@@ -1,10 +1,9 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-<form action="/Note/Create/" method="post">
-    <input type="submit" value="submitttt" />
-</form>
-
+﻿@model List<ListNoteViewModel>
+        @foreach (var note in Model)
+        { 
+            <br /> @note.Id <a href="/note/delete/@note.Id" >deletenote </a><a href="/note/archive/@note.Id">archivenote</a>
+            <br /> <h4>@note.Title</h4>
+            <br /><p> @note.Description </p>
+            <br /><h5>created on:  @note.StartDate </h5>
+            <br /><h5>expires on:  @note.EndDate </h5>
+        }

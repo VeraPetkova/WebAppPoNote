@@ -8,32 +8,154 @@ using WebAppPoNote.Models.NoteViewModels;
 
 namespace WebAppPoNote.Controllers
 {
+
     public class NoteController : Controller
     {
-        
+
+        private readonly AppDbContext _db;
+
+        public NoteController(AppDbContext db)
+        {
+            _db = db;
+
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.isActive == true).OrderByDescending(x => x.Id);
+            List<ListNoteViewModel> notesList = new List<ListNoteViewModel>();
+            foreach (Note note in allNotes)
+            {
+                ListNoteViewModel tempListViewModel = new ListNoteViewModel();
+                tempListViewModel.Id = note.Id;
+                tempListViewModel.Title = note.Title;
+                tempListViewModel.Description = note.Description;
+                tempListViewModel.StartDate = note.StartDate;
+                tempListViewModel.EndDate = note.EndDate;
+                notesList.Add(tempListViewModel);
+            }
+            return View(notesList);
         }
+
+        [HttpGet]
+        public IActionResult Archived()
+        {
+            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.isActive == false).OrderByDescending(x => x.Id);
+            List<ListNoteViewModel> notesList = new List<ListNoteViewModel>();
+            foreach (Note note in allNotes)
+            {
+                ListNoteViewModel tempListViewModel = new ListNoteViewModel();
+                tempListViewModel.Id = note.Id;
+                tempListViewModel.Title = note.Title;
+                tempListViewModel.Description = note.Description;
+                tempListViewModel.StartDate = note.StartDate;
+                tempListViewModel.EndDate = note.EndDate;
+                notesList.Add(tempListViewModel);
+            }
+            return View(notesList);
+        }
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(CreateNoteViewModel viewModel)
         {
             Note newNote = new Note();
             newNote.Title = viewModel.Title;
             newNote.Description = viewModel.Description;
-            //AppDbContext.notes.add(newNote);
+            newNote.StartDate = DateTime.Now;
+            newNote.EndDate = viewModel.EndDate;
+            newNote.isActive = true;
+            _db.Add(newNote);
+            _db.SaveChanges();
             return Redirect("/Note/index");
         }
+
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
-            var a = id;
+            Note dbNote = _db.NoteList.Find(id);
+            DeleteNoteViewModel deleteNote = new DeleteNoteViewModel();
+            if (dbNote != null)
+            {
+                deleteNote.Id = dbNote.Id;
+                deleteNote.Title = dbNote.Title;
+                deleteNote.Description = dbNote.Description;
+            }
+            else
+            {
+                return Redirect("/Note/index/");
+            }
+            return View(deleteNote);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DeleteNoteViewModel deleteModel)
+        {
+            var noteToBeDeleted = new Note();
+            noteToBeDeleted.Id = deleteModel.Id;
+            _db.NoteList.Remove(noteToBeDeleted);
+            _db.SaveChanges();
+            return Redirect("/Note/index");
+        }
+
+        [HttpGet]
+        public IActionResult Archive(int id)
+        {
+            Note dbNote = _db.NoteList.Find(id);
+            ArchiveNoteViewModel archiveNote = new ArchiveNoteViewModel();
+            if (dbNote != null)
+            {
+                archiveNote.Id = dbNote.Id;
+                archiveNote.Title = dbNote.Title;
+                archiveNote.Description = dbNote.Description;
+            }
+            else
+            {
+                return Redirect("/Note/index/");
+            }
+            return View(archiveNote);
+        }
+
+        [HttpPost]
+        public IActionResult Archive(ArchiveNoteViewModel archiveModel)
+        {
+            var noteTobeArchived = new Note();
+            noteTobeArchived.Id = archiveModel.Id;
+            noteTobeArchived.Title = archiveModel.Title;
+            noteTobeArchived.Description = archiveModel.Description;
+            noteTobeArchived.StartDate = archiveModel.StartDate;
+            noteTobeArchived.EndDate = archiveModel.EndDate;
+            noteTobeArchived.priority = archiveModel.priority;
+            noteTobeArchived.isActive = false;
+            _db.NoteList.Update(noteTobeArchived);
+            _db.SaveChanges();
+            return Redirect("/Note/index");
+        }
+
+        [HttpGet]
+        public IActionResult Update()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(UpdateNoteViewModel updateModel)
+        {
+            Note newNote = new Note();
+            newNote.Title = updateModel.Title;
+            newNote.Description = updateModel.Description;
+            newNote.StartDate = DateTime.Now;
+            newNote.EndDate = updateModel.EndDate;
+            newNote.isActive = true;
+            _db.Add(newNote);
+            _db.SaveChanges();
+            return Redirect("/Note/index");
         }
     }
 }

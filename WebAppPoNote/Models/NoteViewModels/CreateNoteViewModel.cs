@@ -12,5 +12,17 @@ namespace WebAppPoNote.Models.NoteViewModels
         public string Title { get; set; }
         [MaxLength(1000)]
         public string Description { get; set; }
+
+        //[Required]
+        //[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        //public DateTime StartDate { get; set; }
+
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime EndDate { get; set; }
+        public string ImageURL { get; set; }
+        public bool priority { get; set; }
     }
 }

@@ -298,11 +298,11 @@ form div.col-6, div.col-12 {
 .bg-cover {
     background: url(../img/1920_1080_1_bez_belejka.jpg);
     background-size: cover !important;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
 }
 
 .page-holder{
-    padding-bottom: 100px;
+   
 }
 
 .fixed-bottom {
