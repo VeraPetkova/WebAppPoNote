@@ -1,28 +1,25 @@
-﻿@model CreateNoteViewModel
+﻿@model UpdateNoteViewModel
 @{
-    ViewData["Title"] = "New Note";
-    
+    ViewData["Title"] = "Edit Note";
+
 
 }
-@using (Html.BeginForm("Create", "Note", FormMethod.Post))
+
+@using (Html.BeginForm("Update", "Note", FormMethod.Post))
 {
 
     <form id="newnoteform" class="container">
         <div class="row">
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
-            <div class="col-6 text-end">
-                <label for="expirydate" class="text-end">Expiration date:</label>
-            </div>
+            @Html.TextBoxFor(m => m.Title, new {@class = "form-control inputnote title", @placeholder = "Title" })
+            <div class="col-6  text-end">
+                <label for="expirydate" class="text-start">
+                    Expiration date:
+                </label>
+                <input asp-for="EndDate" class="form-control inputnote col-4" id="expirydate" />
 
+            </div>
             <div class="col-6">
-                <input type="date" class="form-control inputnote" id="expirydate">
-            </div>
-
-            <div class="col-11 text-end">
-                <label for="priority">High priority:</label>
-            </div>
-
-            <div class="col-1 text-end">
+                <label for="priority" class="text-end"> High Priority: </label>
                 @Html.CheckBoxFor(c => c.priority)
             </div>
             <hr class="col-12">
@@ -33,6 +30,7 @@
         <div class="row">
             <hr class="col-12">
             <input type="file" class="form-control-file col-7" id="exampleFormControlFile1">
+            @Html.HiddenFor(m => m.Id)
             <button type="submit" class="btn submitregister col-5">Save note</button>
         </div>
     </form>

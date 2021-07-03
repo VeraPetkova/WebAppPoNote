@@ -21,12 +21,12 @@ p {
 }
 
 #logo {
-    margin-top: 30px;
+    margin-top: 20px;
     padding-left: 20px;
 }
 
 #login {
-    margin-top: 35px;
+    margin-top: 20px;
     text-align: right;
     font-family: 'Darker Grotesque', sans-serif;
     color: white;
@@ -37,7 +37,7 @@ img {
 }
 
 #logout {
-    margin-top: 35px;
+    margin-top: 20px;
     text-align: right;
     font-family: 'Darker Grotesque', sans-serif;
     color: white;
@@ -73,7 +73,6 @@ img {
 
 .pagetitle {
     color: rgba(0, 105, 194, 1);
-    padding-top: 30px;
     font-size: 4em;
     font-weight: 400;
     color: white;
@@ -99,7 +98,6 @@ button.submitregister {
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: 'Darker Grotesque', sans-serif;
-    
 }
 
     button.submitregister:hover {
@@ -125,6 +123,8 @@ div.formcontainer {
     top: -30px;
 }
 
+
+
 .nav-link {
     text-align: left;
     font-family: 'Darker Grotesque', sans-serif;
@@ -136,21 +136,36 @@ div.formcontainer {
 }
 
     .nav-link:hover {
-        border-left: 4px solid white;
+        border-left: 2px solid white;
         color: white;
         background-color: #1367C2;
         transition: 0.30s ease-in-out;
     }
 
-#expiring:hover {
+.onpage {
+    font-size: 2em;
+    transition: 0.30s ease-in-out;
+    border-left: 4px solid white;
+    background-color: rgba(0, 105, 194, 0.7);
+}
+
+#expiring.onpage {
     border-left: 4px solid #FF0F0F;
+    background-color: rgba(0, 105, 194, 0.7);
+}
+
+#expiring:hover {
+    border-left: 2px solid #FF0F0F;
 }
 
 .menucolumn {
     padding-top: 30px;
+    padding-right: 0;
     border-radius: 2px;
     background-color: rgba(0, 105, 194, 0.5);
 }
+
+
 
 .noteview {
     border-radius: 2px;
@@ -162,13 +177,14 @@ div.formcontainer {
 }
 
 .newnote {
-    margin-top: 30px;
+    margin-top: 10em;
     width: 70%;
 }
 
 .inputnote {
     background-color: transparent;
     color: #1367C2;
+    max-width: auto !important;
 }
 
 #extarea {
@@ -219,7 +235,7 @@ div.formcontainer {
     color: #2D2D2D;
     margin-bottom: 20px;
     padding: 10px;
-    height: 12em;
+    height:15em;
     overflow: hidden;
 }
 
@@ -238,6 +254,7 @@ div.formcontainer {
         padding-left: 10px;
         padding-right: 10px;
         background-color: rgba(0, 105, 194, 1);
+        transition: 0.30s ease-in-out;
     }
 
     .noteheader h3 {
@@ -274,23 +291,6 @@ form div.col-6, div.col-12 {
     bottom: 0;
 }
 
-.nav-item {
-    text-align: center;
-    margin-top: 20px;
-}
-
-    .nav-item a {
-        font-family: 'Darker Grotesque', sans-serif;
-        font-weight: 800;
-        font-size: 1.5em;
-        color: white;
-        border: 1px solid white;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 12px;
-        border-radius: 2px;
-    }
-
 .notesview {
     border: 1px solid white;
 }
@@ -299,10 +299,6 @@ form div.col-6, div.col-12 {
     background: url(../img/1920_1080_1_bez_belejka.jpg);
     background-size: cover !important;
     padding-bottom: 70px;
-}
-
-.page-holder{
-   
 }
 
 .fixed-bottom {

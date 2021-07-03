@@ -70,7 +70,9 @@ namespace WebAppPoNote.Controllers
             newNote.Description = viewModel.Description;
             newNote.StartDate = DateTime.Now;
             newNote.EndDate = viewModel.EndDate;
+            newNote.ImageURL = viewModel.ImageURL;
             newNote.isActive = true;
+            newNote.priority = viewModel.priority;
             _db.Add(newNote);
             _db.SaveChanges();
             return Redirect("/Note/index");
@@ -139,23 +141,47 @@ namespace WebAppPoNote.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update()
+        public IActionResult Update(int id)
         {
-            return View();
+
+            Note dbNote = _db.NoteList.Where(x => x.Id == id).FirstOrDefault();
+            if (dbNote != null)
+            {
+                UpdateNoteViewModel updateNoteModel = new UpdateNoteViewModel();
+                updateNoteModel.Id = dbNote.Id;
+                updateNoteModel.Title = dbNote.Title;
+                updateNoteModel.Description = dbNote.Description;
+                updateNoteModel.StartDate = dbNote.StartDate;
+                updateNoteModel.EndDate = dbNote.EndDate;
+                updateNoteModel.priority = dbNote.priority;
+                updateNoteModel.isActive = dbNote.isActive;
+
+                return View(updateNoteModel);
+            } 
+
+                return Redirect("/Note/index");
         }
 
         [HttpPost]
         public IActionResult Update(UpdateNoteViewModel updateModel)
         {
-            Note newNote = new Note();
-            newNote.Title = updateModel.Title;
-            newNote.Description = updateModel.Description;
-            newNote.StartDate = DateTime.Now;
-            newNote.EndDate = updateModel.EndDate;
-            newNote.isActive = true;
-            _db.Add(newNote);
+            Note updateNote = new Note();
+            updateNote.Id = updateModel.Id;
+            updateNote.Title = updateModel.Title;
+            updateNote.Description = updateModel.Description;
+            updateNote.StartDate = DateTime.Now;
+            updateNote.EndDate = updateModel.EndDate;
+            updateNote.isActive = true;
+            _db.Update(updateNote);
             _db.SaveChanges();
             return Redirect("/Note/index");
+        }
+
+        [HttpGet]
+        public IActionResult FullView(int id)
+        {
+            IEnumerable<Note> cNote = _db.NoteList.Where(x => x.Id == id);
+            return View(cNote);
         }
     }
 }

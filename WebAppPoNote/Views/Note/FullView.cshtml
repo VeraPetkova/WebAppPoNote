@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebAppPoNote.Data.Note>
+
+@{
+    ViewData["Title"] = "Full View";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var item in Model)
+{
+   
+        <div id="fullnoteview">
+            <div class="fullnoteviewtitle row">
+                <div>
+                    <h1>
+                        @item.Title
+                    </h1>
+                    <p class="text-end">@item.EndDate</p>
+                    <hr class="bluehr">
+                </div>
+                <div class="col-4">
+                    <img src="~/img/pexels-darren-lawrence-3822155.jpg" alt="Zanzibar">
+                </div>
+                <div class="col-8">
+                    <p>
+                        @item.Description
+                    </p>
+                    <hr class="bluehr">
+                </div>
+                <!-- <hr class="bluehr"> -->
+                <form action="/Note/Delete/@item.Id" method="get">
+                    <button type="submit" class="col-12 btn submitregister">Delete this note</button>
+                </form>
+                <form action="/Note/Update/@item.Id" method="get">
+                    <button type="submit" class="col-12 btn submitregister">Edit this note</button>
+                </form>
+                <form action="/Note/Archive/@item.Id" method="get">
+                    <button type="submit" class="col-12 btn submitregister">Archive this note</button>
+                </form>
+            </div>
+        </div>
+    
+}

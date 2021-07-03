@@ -29,11 +29,11 @@
         <header class="container-fluid">
             <div class="row">
                 <div class="col-3">
-                    <img id="logo" src="~/img/Logo_poNote_small.png" alt="Logo poNote">
+                    <a asp-area=" " asp-controller="Home" asp-action="Index"><img id="logo" src="../img/Logo_poNote_small.png" alt="Logo poNote"></a>
                 </div>
                
                 <div class="col-6 text-center">
-                    <h1 class="pagetitle"> new <span>N</span>ote</h1>
+                    <h1 class="pagetitle"> @ViewData["Title"] </h1>
                 </div>
                 <div class="col-3">
                     <p id="logout" class="text-right">
@@ -48,7 +48,6 @@
             <div class=" row">
                 <nav class="nav flex-column col-3 menucolumn">
                     <a class="nav-link" href="/Note/Create">New note</a>
-                    <a class="nav-link" href="/Note/Update">Edit note</a>
                     <a id="expiring" class="nav-link" href="expiringnotes.html">Expiring</a>
                     <a class="nav-link" href="/Note/Index">My notes</a>
                     <a class="nav-link" href="/Note/Archived">Archived</a>
