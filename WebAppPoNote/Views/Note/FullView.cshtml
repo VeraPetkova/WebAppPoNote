@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<WebAppPoNote.Data.Note>
 
-@{
-    ViewData["Title"] = "Full View";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@foreach (var item in Model)
-{
-   
+    @*@{
+            ViewData["Title"] = "Full View";
+            //Layout = "~/Views/Shared/_Layout.cshtml";
+        }*@
+
+    @foreach (WebAppPoNote.Data.Note item in Model)
+    {
+
         <div id="fullnoteview">
             <div class="fullnoteviewtitle row">
                 <div>
@@ -16,9 +17,12 @@
                     <p class="text-end">@item.EndDate</p>
                     <hr class="bluehr">
                 </div>
+                @if (item.ImageURL != null)
+                {
                 <div class="col-4">
-                    <img src="~/img/pexels-darren-lawrence-3822155.jpg" alt="Zanzibar">
+                    <img src="@Url.Content(item.ImageURL)" alt="@item.ImageURL" width="200" >
                 </div>
+                }
                 <div class="col-8">
                     <p>
                         @item.Description
@@ -26,16 +30,19 @@
                     <hr class="bluehr">
                 </div>
                 <!-- <hr class="bluehr"> -->
-                <form action="/Note/Delete/@item.Id" method="get">
-                    <button type="submit" class="col-12 btn submitregister">Delete this note</button>
+
+            </div>
+            <div class="row">
+                <form class="col-4" action="/Note/Delete/@item.Id" method="get">
+                    <button type="submit" class="btn submitregister">Delete</button>
                 </form>
-                <form action="/Note/Update/@item.Id" method="get">
-                    <button type="submit" class="col-12 btn submitregister">Edit this note</button>
+                <form class="col-4" action="/Note/Update/@item.Id" method="get">
+                    <button type="submit" class="btn submitregister">Edit</button>
                 </form>
-                <form action="/Note/Archive/@item.Id" method="get">
-                    <button type="submit" class="col-12 btn submitregister">Archive this note</button>
+                <form class="col-4" action="/Note/Archive/@item.Id" method="get">
+                    <button type="submit" class="btn submitregister">Archive</button>
                 </form>
             </div>
         </div>
-    
-}
+
+    }

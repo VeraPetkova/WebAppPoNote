@@ -1,7 +1,7 @@
 ﻿@model List<ListNoteViewModel>
-@{
-    ViewData["Title"] = "Archived";
-}
+@*@{
+        ViewData["Title"] = "Archived";
+    }*@
 @foreach (var note in Model)
 {
     <br />
@@ -13,4 +13,13 @@
     <h5>created on:  @note.StartDate </h5>
     <br />
     <h5>expires on:  @note.EndDate </h5>
+   
+
+    @if (note.ImageURL != null)
+    {
+        <br />
+        <div class="col-4">
+            <img src="@Url.Content(note.ImageURL)" alt="@note.ImageURL" width="200">
+        </div>
+    }
 }

@@ -136,7 +136,7 @@ div.formcontainer {
 }
 
     .nav-link:hover {
-        border-left: 2px solid white;
+        border-left: 4px solid white;
         color: white;
         background-color: #1367C2;
         transition: 0.30s ease-in-out;
@@ -155,7 +155,7 @@ div.formcontainer {
 }
 
 #expiring:hover {
-    border-left: 2px solid #FF0F0F;
+    border-left: 4px solid #FF0F0F;
 }
 
 .menucolumn {
@@ -177,7 +177,7 @@ div.formcontainer {
 }
 
 .newnote {
-    margin-top: 10em;
+    margin-top: 2em;
     width: 70%;
 }
 

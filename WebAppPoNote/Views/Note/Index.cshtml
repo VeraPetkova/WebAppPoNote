@@ -1,7 +1,7 @@
 ﻿@model List<ListNoteViewModel>
-@{
+@*@{
     ViewData["Title"] = "My Notes";
-}
+}*@
 
 <div class="row">
     @for (var i = 0; i < Model.Count; i++)
@@ -14,7 +14,7 @@
                     <div class="noteheader">
                         <h3>@Model[i].Title</h3>
                         <hr class="whitehr">
-                        <p class="text-end">@Model[i].EndDate.</p>
+                        <p class="text-end">@Model[i].EndDate</p>
                     </div>
                     <p>
                         @Model[i].Description

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppPoNote.Data;
 using WebAppPoNote.Models.NoteViewModels;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebAppPoNote.Controllers
 {
@@ -13,11 +15,12 @@ namespace WebAppPoNote.Controllers
     {
 
         private readonly AppDbContext _db;
+        private readonly IHostingEnvironment _env;
 
-        public NoteController(AppDbContext db)
+        public NoteController(AppDbContext db, IHostingEnvironment env)
         {
             _db = db;
-
+            _env = env;
         }
 
         [HttpGet]
@@ -49,6 +52,7 @@ namespace WebAppPoNote.Controllers
                 tempListViewModel.Id = note.Id;
                 tempListViewModel.Title = note.Title;
                 tempListViewModel.Description = note.Description;
+                tempListViewModel.ImageURL = note.ImageURL;
                 tempListViewModel.StartDate = note.StartDate;
                 tempListViewModel.EndDate = note.EndDate;
                 notesList.Add(tempListViewModel);
@@ -65,6 +69,17 @@ namespace WebAppPoNote.Controllers
         [HttpPost]
         public IActionResult Create(CreateNoteViewModel viewModel)
         {
+            string filename = Path.GetFileNameWithoutExtension(viewModel.ImageFile.FileName);
+            string extension = Path.GetExtension(viewModel.ImageFile.FileName);
+            filename = filename + DateTime.Now.ToString("yymmssfff")+ extension;
+            viewModel.ImageURL = "~/pictures/" + filename;
+            //move the file to the server
+            filename = Path.Combine(_env.WebRootPath+"/pictures/", filename);
+            using( var stream = System.IO.File.Create(filename)) 
+            {
+                viewModel.ImageFile.CopyTo(stream);
+            }
+            //create db model, fills up the information from viewmodel and save to the db
             Note newNote = new Note();
             newNote.Title = viewModel.Title;
             newNote.Description = viewModel.Description;
@@ -72,7 +87,7 @@ namespace WebAppPoNote.Controllers
             newNote.EndDate = viewModel.EndDate;
             newNote.ImageURL = viewModel.ImageURL;
             newNote.isActive = true;
-            newNote.priority = viewModel.priority;
+            newNote.priority = viewModel.Priority;
             _db.Add(newNote);
             _db.SaveChanges();
             return Redirect("/Note/index");
@@ -116,6 +131,7 @@ namespace WebAppPoNote.Controllers
                 archiveNote.Id = dbNote.Id;
                 archiveNote.Title = dbNote.Title;
                 archiveNote.Description = dbNote.Description;
+                archiveNote.ImageURL = dbNote.ImageURL;
             }
             else
             {
@@ -127,16 +143,14 @@ namespace WebAppPoNote.Controllers
         [HttpPost]
         public IActionResult Archive(ArchiveNoteViewModel archiveModel)
         {
-            var noteTobeArchived = new Note();
-            noteTobeArchived.Id = archiveModel.Id;
-            noteTobeArchived.Title = archiveModel.Title;
-            noteTobeArchived.Description = archiveModel.Description;
-            noteTobeArchived.StartDate = archiveModel.StartDate;
-            noteTobeArchived.EndDate = archiveModel.EndDate;
-            noteTobeArchived.priority = archiveModel.priority;
-            noteTobeArchived.isActive = false;
-            _db.NoteList.Update(noteTobeArchived);
-            _db.SaveChanges();
+            var noteTobeArchived = _db.NoteList.Where(m => m.Id == archiveModel.Id).FirstOrDefault();
+            if (noteTobeArchived != null)
+            {
+                noteTobeArchived.isActive = false;
+                _db.NoteList.Update(noteTobeArchived);
+                _db.SaveChanges();
+            }
+            
             return Redirect("/Note/index");
         }
 
@@ -161,7 +175,7 @@ namespace WebAppPoNote.Controllers
 
                 return Redirect("/Note/index");
         }
-
+        
         [HttpPost]
         public IActionResult Update(UpdateNoteViewModel updateModel)
         {
@@ -169,6 +183,7 @@ namespace WebAppPoNote.Controllers
             updateNote.Id = updateModel.Id;
             updateNote.Title = updateModel.Title;
             updateNote.Description = updateModel.Description;
+            updateNote.ImageURL = updateModel.ImageURL;
             updateNote.StartDate = DateTime.Now;
             updateNote.EndDate = updateModel.EndDate;
             updateNote.isActive = true;
@@ -183,5 +198,13 @@ namespace WebAppPoNote.Controllers
             IEnumerable<Note> cNote = _db.NoteList.Where(x => x.Id == id);
             return View(cNote);
         }
+
+        //[HttpGet]
+        //public ActionResult Add()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult Add(Image)
     }
 }

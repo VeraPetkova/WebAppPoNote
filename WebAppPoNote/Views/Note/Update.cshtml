@@ -1,9 +1,7 @@
 ﻿@model UpdateNoteViewModel
-@{
+@*@{
     ViewData["Title"] = "Edit Note";
-
-
-}
+}*@
 
 @using (Html.BeginForm("Update", "Note", FormMethod.Post))
 {
@@ -15,7 +13,7 @@
                 <label for="expirydate" class="text-start">
                     Expiration date:
                 </label>
-                <input asp-for="EndDate" class="form-control inputnote col-4" id="expirydate" />
+                <input type="date" name="EndDate" class="form-control inputnote col-4" id="expirydate" />
 
             </div>
             <div class="col-6">
@@ -31,6 +29,8 @@
             <hr class="col-12">
             <input type="file" class="form-control-file col-7" id="exampleFormControlFile1">
             @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.StartDate)
+
             <button type="submit" class="btn submitregister col-5">Save note</button>
         </div>
     </form>

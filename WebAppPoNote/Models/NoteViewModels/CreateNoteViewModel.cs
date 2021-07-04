@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace WebAppPoNote.Models.NoteViewModels
 {
@@ -23,6 +25,8 @@ namespace WebAppPoNote.Models.NoteViewModels
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
         public string ImageURL { get; set; }
-        public bool priority { get; set; }
+        public bool Priority { get; set; }
+
+        public IFormFile ImageFile { get; set; }
     }
 }

@@ -1,13 +1,8 @@
 ﻿@model CreateNoteViewModel
-@{
-    ViewData["Title"] = "New Note";
-    
 
-}
-@using (Html.BeginForm("Create", "Note", FormMethod.Post))
+@using (Html.BeginForm("Create", "Note", FormMethod.Post, new {@enctype ="multipart/form-data", @id = "newnoteform", @class="container" }))
 {
 
-    <form id="newnoteform" class="container">
         <div class="row">
             @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
             <div class="col-6 text-end">
@@ -15,7 +10,7 @@
             </div>
 
             <div class="col-6">
-                <input type="date" class="form-control inputnote" id="expirydate">
+                <input type="date" name="EndDate" class="form-control inputnote" id="expirydate">
             </div>
 
             <div class="col-11 text-end">
@@ -23,7 +18,7 @@
             </div>
 
             <div class="col-1 text-end">
-                @Html.CheckBoxFor(c => c.priority)
+                @Html.CheckBoxFor(c => c.Priority)
             </div>
             <hr class="col-12">
         </div>
@@ -32,10 +27,9 @@
         </div>
         <div class="row">
             <hr class="col-12">
-            <input type="file" class="form-control-file col-7" id="exampleFormControlFile1">
+            <input type ="file" name="ImageFile" class="form-control-file col-7" id="exampleFormControlFile1">
             <button type="submit" class="btn submitregister col-5">Save note</button>
         </div>
-    </form>
 }
 
 
