@@ -1,27 +1,45 @@
 ﻿@model CreateNoteViewModel
-
+@*@foreach (var image in Model.)
+	{
+		 
+	}*@
 @using (Html.BeginForm("Create", "Note", FormMethod.Post, new {@enctype ="multipart/form-data", @id = "newnoteform", @class="container" }))
 {
 
-        <div class="row">
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
-            <div class="col-6 text-end">
-                <label for="expirydate" class="text-end">Expiration date:</label>
-            </div>
+<div class="row">
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
 
-            <div class="col-6">
-                <input type="date" name="EndDate" class="form-control inputnote" id="expirydate">
-            </div>
+   
+    <label class="col-12 text-end" id="priority">
+        Expiration date:
+        <input type="date" class="form-control inputnote" id="expirydate">
 
-            <div class="col-11 text-end">
-                <label for="priority">High priority:</label>
-            </div>
+    </label>
 
-            <div class="col-1 text-end">
-                @Html.CheckBoxFor(c => c.Priority)
-            </div>
-            <hr class="col-12">
+    <label class="col-12 text-end" id="priority">
+        High priority:
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+
+
+    @*<div class="col-6 text-end">
+            <label for="expirydate" class="text-end">Expiration date:</label>
         </div>
+
+        <div class="col-6">
+            <input type="date" name="EndDate" class="form-control inputnote" id="expirydate">
+        </div>
+
+        <div class="col-11 text-end">
+            <label for="priority">High priority:@Html.CheckBoxFor(c => c.Priority)</label>
+        </div>
+
+        <div class="col-1 text-end">
+            @Html.CheckBoxFor(c => c.Priority)
+        </div>*@
+   
+</div>
         <div class="row">
             @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "extarea", @rows = "5", @placeholder = "Your note..." })
         </div>

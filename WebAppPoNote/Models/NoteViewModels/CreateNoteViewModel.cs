@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -28,5 +29,10 @@ namespace WebAppPoNote.Models.NoteViewModels
         public bool Priority { get; set; }
 
         public IFormFile ImageFile { get; set; }
+
+        public string Id { get; set; }
+
+        [ForeignKey("Id")]
+        public virtual WebAppPoNote.Areas.Identity.Data.WebAppPoNoteUser CertainUser { get; set; }
     }
 }

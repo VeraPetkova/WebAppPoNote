@@ -1,11 +1,11 @@
-﻿@model IEnumerable<WebAppPoNote.Data.Note>
+﻿@model IEnumerable<WebAppPoNote.Areas.Identity.Data.Note>
 
     @*@{
             ViewData["Title"] = "Full View";
             //Layout = "~/Views/Shared/_Layout.cshtml";
         }*@
 
-    @foreach (WebAppPoNote.Data.Note item in Model)
+    @foreach (WebAppPoNote.Areas.Identity.Data.Note item in Model)
     {
 
         <div id="fullnoteview">
@@ -32,14 +32,14 @@
                 <!-- <hr class="bluehr"> -->
 
             </div>
-            <div class="row">
-                <form class="col-4" action="/Note/Delete/@item.Id" method="get">
+            <div class="row fullnoteviewtitle">
+                <form class="col-4" action="/Note/Delete/@item.NoteId" method="get">
                     <button type="submit" class="btn submitregister">Delete</button>
                 </form>
-                <form class="col-4" action="/Note/Update/@item.Id" method="get">
+                <form class="col-4" action="/Note/Update/@item.NoteId" method="get">
                     <button type="submit" class="btn submitregister">Edit</button>
                 </form>
-                <form class="col-4" action="/Note/Archive/@item.Id" method="get">
+                <form class="col-4" action="/Note/Archive/@item.NoteId" method="get">
                     <button type="submit" class="btn submitregister">Archive</button>
                 </form>
             </div>

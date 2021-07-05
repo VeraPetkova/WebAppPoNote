@@ -26,24 +26,16 @@
 </head>
 <body>
     <div class="page-holder bg-cover">
-        <header class="container-fluid">
-            <div class="row">
-                <div class="col-3">
-                    <a asp-area=" " asp-controller="Home" asp-action="Index"><img id="logo" src="../img/Logo_poNote_small.png" alt="Logo poNote"></a>
+       
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="logo" src="~/img/Logo_poNote_small.png" alt="Logo poNote"></a>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial.cshtml" />
+                    </div>
                 </div>
-               
-                <div class="col-6 text-center">
-                    <h1 class="pagetitle"> @ViewData["Title"] </h1>
-                </div>
-                <div class="col-3">
-                    <p id="logout" class="text-right">
-                        Hello, <span id="username">username</span> <span>
-                            <a href="index.html">Logout</a>
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </header>
+            </nav>
+       
         <div class="container newnote">
             <div class=" row">
                 <nav class="nav flex-column col-3 menucolumn">

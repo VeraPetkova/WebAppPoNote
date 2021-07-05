@@ -4,31 +4,39 @@
 }*@
 
 <div class="row">
-    @for (var i = 0; i < Model.Count; i++)
+    @if (Model.Count == 0)
     {
-        <div class="col-4 littlenote">
-            @Model[i].Id <a href="/note/delete/@Model[i].Id">deletenote </a> <a href="/note/archive/@Model[i].Id">archivenote</a>
-            <a asp-area=" " asp-controller="Note" asp-action="FullView" asp-route-id ="@Model[i].Id">
-
-                <div class="littlenoteinner shadow">
-                    <div class="noteheader">
-                        <h3>@Model[i].Title</h3>
-                        <hr class="whitehr">
-                        <p class="text-end">@Model[i].EndDate</p>
-                    </div>
-                    <p>
-                        @Model[i].Description
-
-                    </p>
-                </div>
-            </a>
-        </div>
-        @if (i % 3 == 2) 
-        { 
-            <br />
-        }
-     
+        <h3>Oops...There are no notes available</h3>
     }
+    else
+    {
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="col-4 littlenote">
+                @*@Model[i].NoteId <a href="/note/delete/@Model[i].NoteId">deletenote </a> <a href="/note/archive/@Model[i].NoteId">archivenote</a>*@
+                <a asp-area=" " asp-controller="Note" asp-action="FullView" asp-route-Noteid="@Model[i].NoteId">
+
+                    <div class="littlenoteinner shadow">
+                        <div class="noteheader">
+                            <h3>@Model[i].Title</h3>
+                            <hr class="whitehr">
+                            <p class="text-end">@Model[i].EndDate.Date.ToShortDateString()</p>
+                        </div>
+                        <p>
+                            @Model[i].Description
+
+                        </p>
+                    </div>
+                </a>
+            </div>
+            @if (i % 3 == 2)
+            {
+                <br />
+            }
+
+        }
+    }
+
 
 </div>
 
