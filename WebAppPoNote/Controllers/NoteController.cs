@@ -43,6 +43,8 @@ namespace WebAppPoNote.Controllers
                 tempListViewModel.Description = note.Description;
                 tempListViewModel.StartDate = note.StartDate;
                 tempListViewModel.EndDate = note.EndDate;
+                tempListViewModel.priority = note.priority;
+                tempListViewModel.isActive = note.isActive;
                 notesList.Add(tempListViewModel);
             }
             return View(notesList);

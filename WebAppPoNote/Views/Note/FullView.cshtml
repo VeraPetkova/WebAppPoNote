@@ -14,7 +14,7 @@
                     <h1>
                         @item.Title
                     </h1>
-                    <p class="text-end">@item.EndDate</p>
+                    <p class="text-end">@item.EndDate.Date.ToShortDateString()</p>
                     <hr class="bluehr">
                 </div>
                 @if (item.ImageURL != null)

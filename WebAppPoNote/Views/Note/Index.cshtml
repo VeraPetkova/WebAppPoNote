@@ -12,11 +12,26 @@
     {
         @for (var i = 0; i < Model.Count; i++)
         {
+            var classHeader = "noteheader";
+            if (Model[i].EndDate < DateTime.Now.AddDays(-1))
+            {
+                classHeader = "noteheader-red";
+            }
+            else if (Model[i].EndDate < DateTime.Now.AddDays(0))
+            {
+                classHeader = "noteheader-yellow";
+            }
             <div class="col-4 littlenote">
                 <a asp-area=" " asp-controller="Note" asp-action="FullView" asp-route-Noteid="@Model[i].NoteId">
                     <div class="littlenoteinner shadow">
-                        <div class="@(Model[i].EndDate < DateTime.Now.AddDays(-1)?"noteheader-red":"noteheader")">
-                            <h3>@Model[i].Title</h3>
+                        <div class=@classHeader @*@(Model[i].EndDate < DateTime.Now.AddDays(1)?"noteheader-red":"noteheader")*@>
+                            <h3>
+                                @if (Model[i].priority == true)
+                                {
+                                    <span><i class="fas fa-star"></i></span>
+                                }
+                                @Model[i].Title
+                            </h3>
                             <hr class="whitehr">
                             <p class="text-end">@Model[i].EndDate.Date.ToShortDateString()</p>
                         </div>

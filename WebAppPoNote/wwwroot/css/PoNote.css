@@ -14,6 +14,8 @@ h3 {
     font-family: 'Darker Grotesque', sans-serif;
     font-weight: 400;
     color: #1367C2;
+    line-height: 0.8em;
+    padding-top: 0.3em;
 }
 
 p {
@@ -34,6 +36,11 @@ p {
 
 img {
     max-width: 100%;
+}
+
+.sticker {
+    position: relative;
+    top: -60px;
 }
 
 .logout {
@@ -251,7 +258,7 @@ div.formcontainer {
     color: #2D2D2D;
     margin-bottom: 20px;
     padding: 10px;
-    height:15em;
+    height:12em;
     overflow: hidden;
 }
 
@@ -264,12 +271,22 @@ div.formcontainer {
     padding-left: 10px;
     padding-right: 10px;
     background-color: rgba(0, 105, 194, 0.8);
+ 
 }
 
 .noteheader-red {
     padding-left: 10px;
     padding-right: 10px;
     background-color: #FF0F0F;
+    color: white;
+   
+  
+}
+
+.noteheader-yellow {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: yellow;
 }
 
     .noteheader:hover {
@@ -290,6 +307,32 @@ div.formcontainer {
     .noteheader hr.mininote {
         color: white;
     }
+
+.noteheader-red h3 {
+    color: white;
+}
+
+.noteheader-red p {
+    color: white;
+}
+
+.noteheader-red hr.mininote {
+    color: white;
+}
+
+
+.noteheader-yellow h3 {
+    color: #1367C2;
+}
+
+.noteheader-yellow p {
+    color: #1367C2;
+}
+
+.noteheader-yellow hr.mininote {
+    color: #1367C2;
+}
+
 
 #formcontainer form input, button {
     width: 100%;

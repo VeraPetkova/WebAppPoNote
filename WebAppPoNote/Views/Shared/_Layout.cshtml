@@ -22,7 +22,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet"
+          href="//use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="~/css/PoNote.css">
 
     <title>@ViewData["Title"] WebAppPoNote</title>
@@ -42,20 +43,25 @@
         @if (!SignInManager.IsSignedIn(User))
         {
             <div class="noteview col-md-6 offset-3">
+                <div class="text-center">
+                      <img class="sticker" src="~/img/note_sticker.png" alt="sticker">
+                </div>
                 @RenderBody()
             </div>
         }
         else
         {
             <div class="container newnote">
-                <div class=" row">
+                <div class="row" >
                     <nav class="nav flex-column col-3 menucolumn">
                         <a class="nav-link" href="/Note/Create">New note</a>
-                        <a id="expiring" class="nav-link" href="expiringnotes.html">Expiring</a>
                         <a class="nav-link" href="/Note/Index">My notes</a>
                         <a class="nav-link" href="/Note/Archived">Archived</a>
                     </nav>
                     <div class="noteview col-9">
+                        <div class="text-center">
+                            <img class="sticker" src="~/img/note_sticker.png" alt="sticker">
+                        </div>
                         @RenderBody()
                     </div>
                 </div>

@@ -9,19 +9,23 @@
 <div class="row">
     @Html.TextBoxFor(m => m.Title, new { @class = "form-control inputnote title", @placeholder = "Title" })
 
-   
+
     <label class="col-12 text-end" id="priority">
         Expiration date:
         <input type="date" name="EndDate" class="form-control inputnote" id="expirydate">
 
     </label>
+    <div class="col-11 text-end">
+        <label for="priority">High priority:@Html.CheckBoxFor(c => c.Priority)</label>
+    </div>
 
-    <label class="col-12 text-end" id="priority">
-        High priority:
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
+    @*<label class="col-12 text-end" id="priority">
+            high priority:
+            <input type="checkbox" name="highpriority" id= "Priority">
+            <span class="checkmark"></span>
+        </label>*@
 
+    @*@Html.CheckBoxFor(m => m.Priority);*@
 
     @*<div class="col-6 text-end">
             <label for="expirydate" class="text-end">Expiration date:</label>
@@ -38,7 +42,7 @@
         <div class="col-1 text-end">
             @Html.CheckBoxFor(c => c.Priority)
         </div>*@
-   
+
 </div>
         <div class="row">
             @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "extarea", @rows = "5", @placeholder = "Your note..." })

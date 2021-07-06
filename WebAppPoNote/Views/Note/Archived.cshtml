@@ -14,7 +14,7 @@
                     <div class="noteheader">
                         <h3>@Model[i].Title</h3>
                         <hr class="whitehr">
-                        <p class="text-end">@Model[i].EndDate</p>
+                        <p class="text-end">@Model[i].EndDate.Date.ToShortDateString()</p>
                     </div>
                     <p>
                         @Model[i].Description
