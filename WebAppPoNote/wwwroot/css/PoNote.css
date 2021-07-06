@@ -92,7 +92,7 @@ input {
 }
 
 button.submitregister {
-    background-color: rgba(0, 105, 194, .8);
+    background-color: rgba(0, 105, 194, 1);
     border-radius: 2px;
     color: white;
     margin-top: 20px;
@@ -100,8 +100,8 @@ button.submitregister {
     font-family: 'Darker Grotesque', sans-serif;
 }
 
-    button.submitregister:hover {
-        background-color: rgba(0, 105, 194, 1);
+    button.submitregister:hover {     
+        background-color: rgba(0, 105, 194, .8);
         color: white;
         transition: 0.30s ease-in-out;
     }
@@ -264,6 +264,12 @@ div.formcontainer {
     padding-left: 10px;
     padding-right: 10px;
     background-color: rgba(0, 105, 194, 0.8);
+}
+
+.noteheader-red {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FF0F0F;
 }
 
     .noteheader:hover {

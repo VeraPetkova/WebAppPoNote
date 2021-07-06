@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,5 +16,8 @@ namespace WebAppPoNote.Models.NoteViewModels
         public string ImageURL { get; set; }
         public bool priority { get; set; }
         public bool isActive { get; set; }
+
+        [ForeignKey("Id")]
+        public virtual WebAppPoNote.Areas.Identity.Data.WebAppPoNoteUser CertainUser { get; set; }
     }
 }

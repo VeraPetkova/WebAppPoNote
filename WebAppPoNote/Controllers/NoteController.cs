@@ -33,7 +33,7 @@ namespace WebAppPoNote.Controllers
         {
             var userid = _userManager.GetUserId(HttpContext.User);
 
-            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.Id == userid).Where(x => x.isActive==true);/*OrderByDescending(x => x.Id);*/
+            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.Id == userid).Where(x => x.isActive == true).OrderByDescending(x => x.NoteId);
             List<ListNoteViewModel> notesList = new List<ListNoteViewModel>();
             foreach (Note note in allNotes)
             {
@@ -51,7 +51,9 @@ namespace WebAppPoNote.Controllers
         [HttpGet]
         public IActionResult Archived()
         {
-            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.isActive == false).OrderByDescending(x => x.NoteId);
+            var userid = _userManager.GetUserId(HttpContext.User);
+
+            IEnumerable<Note> allNotes = _db.NoteList.Where(x => x.Id == userid && x.isActive == false).OrderByDescending(x => x.NoteId);
             List<ListNoteViewModel> notesList = new List<ListNoteViewModel>();
             foreach (Note note in allNotes)
             {

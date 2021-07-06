@@ -3,7 +3,7 @@
         ViewData["Title"] = "Archive Note";
     }*@
 
-@Model.NoteId
+@*@Model.NoteId
 <br />
 
 @Model.Title
@@ -18,12 +18,14 @@
 
 <br />
 
-@Model.ImageURL
+@Model.ImageURL*@
 
 <h3>Do you want to archive this note?</h3>
 @using (Html.BeginForm("Archive", "Note", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.NoteId)
+    @Html.HiddenFor(m => m.ImageURL)
+    @Html.HiddenFor(m => m.EndDate)
    
     <Input type="submit" value="yes" />
 }
