@@ -7,7 +7,7 @@ poNote is a web-based application for storing notes
 poNote v1.0.0
 
 
-#platphorm
+#platform
 
 poNote is written with C# using MVC architectural pattern, HTML 5, CSS, RAZOR
 
