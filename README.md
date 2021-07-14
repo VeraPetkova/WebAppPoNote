@@ -16,17 +16,17 @@ SQL Server Management Studio (SSMS)
 
 
 #plug-ins
-ASP.NET CORE
-Microsoft.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.SqlServer
-Microsoft.EntityFrameworkCore.Tools
-Microsoft.App.NetCore.Mvc.Razor.Runtame.Compilation
-Microsoft.AspNetCore.Identity.EntityFrameworkCore
+ASP.NET CORE,
+Microsoft.EntityFrameworkCore,
+Microsoft.EntityFrameworkCore.SqlServer,
+Microsoft.EntityFrameworkCore.Tools,
+Microsoft.App.NetCore.Mvc.Razor.Runtame.Compilation,
+Microsoft.AspNetCore.Identity.EntityFrameworkCore,
 Misrosoft.AspNetCote.Identity.UI
 
 
 #includes
-bootstrap
+bootstrap,
 font-awesome
 
 
