@@ -36,12 +36,12 @@ font-awesome
 
 #Creators
 
-Product Owner - Hristo Peev
-Project Manager - Bozhidar Navchev
-Scrum Master - Vera Petkova
-Design - Gergana Byanova
-Biser Pironkov
-Denitsa Ivanovich
-Dimitar Naidenov
-Semir Arfaui
+Product Owner - Hristo Peev,
+Project Manager - Bozhidar Navchev,
+Scrum Master - Vera Petkova,
+Design - Gergana Byanova,
+Biser Pironkov,
+Denitsa Ivanovich,
+Dimitar Naidenov,
+Semir Arfaui,
 Stilian Georgiev
