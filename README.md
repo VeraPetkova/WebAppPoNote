@@ -36,7 +36,7 @@ font-awesome
 
 
 #License and copyright
-
+Designed by poWeb © 2020-2021 All rights reserved
 
 
 #Creators
@@ -44,7 +44,7 @@ font-awesome
 Product Owner - Hristo Peev,
 Project Manager - Bozhidar Navchev,
 Scrum Master - Vera Petkova,
-Design - Gergana Byanova,
+Gergana Byanova,
 Biser Pironkov,
 Denitsa Ivanovich,
 Dimitar Naidenov,
