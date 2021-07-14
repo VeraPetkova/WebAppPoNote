@@ -36,7 +36,7 @@ font-awesome
 
 
 #License and copyright
-Designed by poWeb © 2020-2021 All rights reserved
+
 
 
 #Creators
